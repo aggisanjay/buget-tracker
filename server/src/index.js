@@ -17,11 +17,8 @@ dotenv.config();
 const app = express();
 
 const CLIENT_URL = process.env.CLIENT_URL || "http://localhost:5173";
-app.use(cors({
-  origin: CLIENT_URL,
-  credentials: true
-}));
 
+app.use(cors({ origin: CLIENT_URL, credentials: true }));
 app.use(helmet());
 app.use(morgan("dev"));
 app.use(express.json({ limit: "1mb" }));
@@ -37,11 +34,9 @@ app.use("/api/insights", insightsRoutes);
 
 app.use(errorHandler);
 
-const PORT = process.env.PORT || 4000;
-
+// ✅ VERCEL NEEDS AN EXPORT — NOT app.listen()
 connectDB(process.env.MONGO_URI)
-  .then(() => app.listen(PORT, () => console.log(`🚀 API on :${PORT}`)))
-  .catch(err => {
-    console.error("Mongo connect error", err);
-    process.exit(1);
-  });
+  .then(() => console.log("✅ MongoDB Connected"))
+  .catch(err => console.error("❌ DB Error:", err));
+
+export default app;
