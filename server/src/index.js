@@ -22,6 +22,7 @@ const PORT = process.env.PORT || 4000;
 
 const CLIENT_URL = process.env.CLIENT_URL || "http://localhost:5173";
 
+app.set("trust proxy", 1);
 app.use(cors({ origin: CLIENT_URL, credentials: true }));
 app.use(helmet());
 app.use(morgan("dev"));
