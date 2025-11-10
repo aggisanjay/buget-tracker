@@ -49,15 +49,14 @@ https://buget-tracker-iota.vercel.app/
 ### **Backend `.env`**
 
 PORT=4000
+
 MONGO_URI=your-mongodb-uri
+
 JWT_SECRET=your-secret
+
 CLIENT_URL=http://localhost:5173 # Or your deployed frontend URL
+
 NODE_ENV=production
-
-yaml
-Copy code
-
----
 
 ## ⚙️ Installation & Setup
 
@@ -68,7 +67,6 @@ git clone https://github.com/your-username/budget-tracker.git
 cd budget-tracker
 
 ✅ Install Backend
-
 
 cd server
 
